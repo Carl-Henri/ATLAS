@@ -68,3 +68,6 @@ COLSMOL_PATH = BASE_PATH / "models/colSmol-256M"
 # Path pour le processing des documents 
 BGE_M3_TOKENIZER_PATH = BASE_PATH / "models/bge-m3-tokenizer"
 DOCLING_ARTIFACTS_PATH = BASE_PATH / "models/docling_artifacts"
+
+# Modèle d'embedding BGE-M3 (télécharger depuis https://huggingface.co/BAAI/bge-m3)
+BGE_M3_MODEL_PATH = BASE_PATH / "models/bge-m3"

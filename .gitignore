@@ -2,3 +2,6 @@
 venv
 models
 data
+**/__pycache__/
+logs
+retrieved_context

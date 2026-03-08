@@ -16,7 +16,6 @@ from my_rag import retrieve_and_answer_query
 from my_agentic_rag import agentic_retrieve_and_answer_query
 
 from pathlib import Path
-from openai_llm import instantiate_llm
 from mistral_langchain_wrapper import MistralChatWrapper
 from dotenv import load_dotenv
 
@@ -25,8 +24,6 @@ API_KEY = os.getenv('API_KEY')
 llm_mistral_medium = MistralChatWrapper(api_key=API_KEY, model="medium")
 llm_mistral_small = MistralChatWrapper(api_key=API_KEY, model="small")
 ll_mistral_large = MistralChatWrapper(api_key=API_KEY, model="large")
-
-llm_gpt = instantiate_llm('gpt-4.1')
 
 llm_mini = llm_mistral_small
 llm = llm_mistral_medium

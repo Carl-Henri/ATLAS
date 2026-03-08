@@ -1,3 +1,8 @@
+# PyTorch (CUDA 12.6) — must come before other packages that depend on torch
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.7.0+cu126
+torchvision==0.22.0+cu126
+
 gradio==5.49.1
 tqdm==4.67.1
 requests==2.32.5
@@ -21,3 +26,4 @@ pyperclip==1.11.0
 markdown==3.10
 beautifulsoup4==4.14.2
 comtypes==1.4.15
+huggingface_hub>=0.33.5,<1.0
