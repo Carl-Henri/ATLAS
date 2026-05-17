@@ -56,11 +56,51 @@ The conversational assistant is orchestrated by a **LangGraph** agent that:
 
 ## Gradio Interface
 
+![ATLAS interface](docs/interface.png)
+
 - Chat interface with conversation history
 - Document filter to restrict retrieval to specific files
 - Analysis mode selector (informative vs. generative workflow)
 - Source viewer: cited pages displayed inline
 - HTML export of conversations
+
+![Chat example](docs/chat.png)
+
+![Source pages](docs/sources.png)
+
+## Installation
+
+**Requirements:** Python 3.13, a Mistral API key, a BGE-M3 embedding API, and a GPU with ≥ 4 GB VRAM for visual RAG (optional).
+
+```bash
+pip install -r requirements.txt
+```
+
+Download the following models from HuggingFace and place them in a `models/` directory:
+- [`BAAI/bge-m3`](https://huggingface.co/BAAI/bge-m3) → `models/bge-m3/`
+- `colSmol-256M` → `models/colSmol-256M/` *(optional, for visual RAG)*
+- Docling artifacts → `models/docling_artifacts/`
+- Mistral tokenizer (`tekken.json`) → `models/tekken.json`
+
+Then set `BASE_PATH` in `my_paths.py` to the absolute path of your installation directory.
+
+### Running the interface
+
+```bash
+python interface_gradio.py
+```
+
+The Gradio UI will be available at `http://localhost:7860`.
+
+### Ingesting documents
+
+Place your raw documents (PDF, Word, Excel, HTML, XML/TXT) in `data/Raw_database/`, then run:
+
+```bash
+python update_databases_full_pipeline.py
+```
+
+This runs the full pipeline: Word → PDF conversion, Docling parsing, chunking, figure annotation, vectorization into ChromaDB and Whoosh, and visual RAG embedding. Re-running it is incremental — only new or removed documents are processed.
 
 ## Tech Stack
 
